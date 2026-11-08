@@ -1,0 +1,21 @@
+# Auto-start the bridge after the Pi boots to the desktop:
+#   sudo cp petfeeder.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now petfeeder
+#   journalctl -u petfeeder -f        # view logs
+# Set for username "pi".
+[Unit]
+Description=Smart Pet Feeder - Raspberry Pi bridge
+After=network-online.target mosquitto.service graphical.target
+Wants=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/petfeeder
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStart=/home/pi/petenv/bin/python /home/pi/petfeeder/pi_bridge.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target

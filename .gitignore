@@ -1,0 +1,28 @@
+# Secrets: never commit these
+**/secrets.h
+**/serviceAccountKey.json
+**/*firebase-adminsdk*.json
+**/.env
+**/key.properties
+**/local.properties
+**/google-services.json
+**/GoogleService-Info.plist
+**/*.jks
+**/*.keystore
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Model files (large)
+*.tflite
+*.pt
+*.onnx
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

@@ -1,0 +1,46 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "devices": {
+      "$deviceId": {
+        ".read": "auth != null",
+        "config": {
+          ".write": "auth != null"
+        },
+        "commands": {
+          ".write": "auth != null",
+          ".indexOn": [
+            "ts"
+          ]
+        },
+        "pets": {
+          ".write": "auth != null"
+        },
+        "alerts": {
+          ".write": "auth != null",
+          ".indexOn": [
+            "ts"
+          ]
+        },
+        "logs": {
+          ".indexOn": [
+            "ts"
+          ]
+        },
+        "feedings": {
+          ".indexOn": [
+            "ts"
+          ]
+        },
+        "history": {
+          "env": {
+            ".indexOn": [
+              "ts"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

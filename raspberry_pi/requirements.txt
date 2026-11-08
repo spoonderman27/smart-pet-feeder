@@ -1,0 +1,16 @@
+# On the Pi, first install the system packages:
+#   sudo apt update
+#   sudo apt install -y python3-picamera2 python3-opencv mosquitto mosquitto-clients
+# Then create a venv that can also see those apt packages:
+#   python3 -m venv --system-site-packages ~/petenv
+#   source ~/petenv/bin/activate
+#   pip install -r requirements.txt
+paho-mqtt>=2.0
+firebase-admin>=6.5
+
+# Pick ONE detector backend (must match DETECTOR_BACKEND in config.py):
+requests                # "roboflow_workflow" (usually already installed)
+# tflite-runtime        # "tflite" (32-bit Raspberry Pi OS)
+# ultralytics>=8.3      # "ultralytics" (needs 64-bit Raspberry Pi OS)
+# inference             # "roboflow_local"
+# inference-sdk         # "roboflow_hosted"
